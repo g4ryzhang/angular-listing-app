@@ -11,7 +11,7 @@ import { HousingLocation } from '../housinglocation';
   imports: [CommonModule, ReactiveFormsModule],
   template: `
     <article>
-      <img class="listing-photo" [src]="housingLocation?.photo"
+      <img class="listing-photo" [src]="defaultImage"
         alt="Exterior photo of {{housingLocation?.name}}"/>
       <section class="listing-description">
         <h2 class="listing-heading">{{housingLocation?.name}}</h2>
@@ -47,6 +47,7 @@ export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService = inject(HousingService);
   housingLocation: HousingLocation | undefined;
+  defaultImage: string = 'assets/illustration-simple-house-isolated-on-260nw-1937900650.webp';
 
   applyForm = new FormGroup({
     firstName: new FormControl(''),
